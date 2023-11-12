@@ -13,16 +13,16 @@ const StyledCard = styled(Card)`
 
 
 
-const PinnedNote = ({ pinned }) => {
+const PinnedNote = ({ note }) => {
 
   const { pinnedNotes, setNotes, setPinnedNotes } = useContext(DataContext);
 
  
 
-  const unPinned = (pinned) => {
-      const updatedNotes = pinnedNotes.filter(data => data.id !== pinned.id);
+  const unPinned = (note) => {
+      const updatedNotes = pinnedNotes.filter(data => data.id !== note.id);
       setPinnedNotes(updatedNotes);
-      setNotes(prevArr => [pinned, ...prevArr]);
+      setNotes(prevArr => [note, ...prevArr]);
   }
 
   return (
@@ -32,12 +32,12 @@ const PinnedNote = ({ pinned }) => {
             <UnPinned
                fontSize="small"
                style={{marginLeft: 'auto'}} 
-               onClick={() => unPinned(pinned) }
+               onClick={() => unPinned( note ) }
             />
         </CardActions>
         <CardContent>
-            <Typography>{pinned.heading}</Typography>
-            <Typography>{pinned.text}</Typography>
+            <Typography>{ note.heading}</Typography>
+            <Typography>{ note.text}</Typography>
 
         </CardContent>
         
