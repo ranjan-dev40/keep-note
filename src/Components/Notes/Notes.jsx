@@ -39,7 +39,7 @@ const Notes = () => {
       <Box sx={{ p: 3, width: '100%' }}>
         <DrawerHeader />
         <Form />
-        {notes.length > 0 ? (
+        {pinnedNotes || notes.length > 0 ? (
           <>
             <Grid container style={{ marginTop: '16vh', gridGap: '50px' }}>
               {pinnedNotes.map((pinned) => (
