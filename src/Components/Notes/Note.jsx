@@ -13,7 +13,7 @@ const StyledCard = styled(Card)`
 
 
 
-const Note = ({ note }) => {
+const Note = ({ note, onClick }) => {
 
   const { notes, setNotes, setPinnedNotes, setDeletedNotes } = useContext(DataContext);
 
@@ -29,11 +29,15 @@ const Note = ({ note }) => {
       setDeletedNotes(prevArr => [note, ...prevArr]);
   }
 
+  const handleClick = () => {
+    onClick(note.id);
+  };
+
   return (
     <StyledCard>
-        <CardContent>
-            <Typography>{note.heading}</Typography>
-            <Typography>{note.text}</Typography>
+        <CardContent onClick={handleClick}>
+            <Typography variant="h6" style={{ marginBottom:12 }}>{note.heading}</Typography>
+            <Typography variant="body1">{note.text}</Typography>
 
         </CardContent>
         <CardActions>

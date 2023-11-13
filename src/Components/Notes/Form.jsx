@@ -34,11 +34,11 @@ const Form = () => {
 
   const onTextAreaClick = () => {
     setShowTextField(true);
-    containerRef.current.style.minJeight = '70px'
+    containerRef.current.style.minHeight = '70px'
   }
   const handleClickAway = () => {
     setShowTextField(false);
-    containerRef.current.style.minJeight = '30px'
+    containerRef.current.style.minHeight = '30px'
     setAddNote({...note, id: uuid()})
 
     if(addNote.heading || addNote.text){

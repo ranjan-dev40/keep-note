@@ -36,8 +36,8 @@ const PinnedNote = ({ note }) => {
             />
         </CardActions>
         <CardContent>
-            <Typography>{ note.heading}</Typography>
-            <Typography>{ note.text}</Typography>
+            <Typography variant="h6" style={{ marginBottom:12 }}>{note.heading}</Typography>
+            <Typography variant="body1">{note.text}</Typography>
 
         </CardContent>
         
