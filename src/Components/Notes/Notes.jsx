@@ -49,7 +49,9 @@ const Notes = () => {
                 top: 0,
                 left: 0,
                 zIndex: 1000, // Set a higher z-index to make sure it appears above other elements
-                backgroundColor: 'rgba(255, 255, 255, 0.9)', // Semi-transparent white background
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                marginLeft: 16,
+                marginTop: 3
               }}>
                 <EditableNote note={editableNote} />
               </Box>

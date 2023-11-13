@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Card, CardActions, CardContent, Typography } from "@mui/material"
 import {styled} from '@mui/material/styles'
-import {  PushPin as UnPinned } from "@mui/icons-material";
+import {  PushPinOutlined as UnPinned } from "@mui/icons-material";
 import { DataContext } from "../../Context/DataProvider";
 
 const StyledCard = styled(Card)`
@@ -16,6 +16,7 @@ const StyledCard = styled(Card)`
 const PinnedNote = ({ note }) => {
 
   const { pinnedNotes, setNotes, setPinnedNotes } = useContext(DataContext);
+  const [isHovered, setIsHovered] = useState(false);
 
  
 
@@ -26,13 +27,17 @@ const PinnedNote = ({ note }) => {
   }
 
   return (
-    <StyledCard>
+    <StyledCard
+    
+    >
         <CardActions>
            
             <UnPinned
                fontSize="small"
-               style={{marginLeft: 'auto'}} 
+               style={{marginLeft:'auto', cursor: 'pointer', backgroundColor: isHovered ? 'lightgray' : 'transparent' }}
                onClick={() => unPinned( note ) }
+               onMouseEnter={() => setIsHovered(true)}
+               onMouseLeave={() => setIsHovered(false)}
             />
         </CardActions>
         <CardContent>
